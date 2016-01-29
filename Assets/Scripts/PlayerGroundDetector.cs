@@ -11,11 +11,15 @@ public class PlayerGroundDetector : MonoBehaviour {
 
 	void OnTriggerEnter2D(Collider2D coll)
 	{
-		m_numGroundContacts++;
+		if (!coll.isTrigger) { // Don't register contact with triggers
+			m_numGroundContacts++;
+		}
 	}
 
 	void OnTriggerExit2D(Collider2D coll)
 	{
-		m_numGroundContacts--;
+		if (!coll.isTrigger) { // Don't register contact with triggers
+			m_numGroundContacts--;
+		}
 	}
 }
