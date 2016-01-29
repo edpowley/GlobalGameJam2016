@@ -24,14 +24,25 @@ public class PlayerMovement : MonoBehaviour
 		m_body = GetComponent<Rigidbody2D> ();
 	}
 
+	void flipSprite()
+	{
+		transform.localScale = new Vector3 (-transform.localScale.x, transform.localScale.y, transform.localScale.z);
+	}
+
 	void FixedUpdate()
 	{
 		if (Input.GetKey (KeyCode.LeftArrow) || Input.GetKey (KeyCode.A)) {
 			// Move left
 			m_body.AddForce (Vector2.left * m_movementSpeed);
+			// If facing right, face left instead
+			if (transform.localScale.x > 0)
+				flipSprite();
 		} else if (Input.GetKey (KeyCode.RightArrow) || Input.GetKey (KeyCode.D)) {
 			// Move right
 			m_body.AddForce (Vector2.right * m_movementSpeed);
+			// If facing left, face right instead
+			if (transform.localScale.x < 0)
+				flipSprite();
 		} else {
 			// If not pressing a key, add friction force
 			m_body.AddForce(new Vector2(-m_body.velocity.x * m_movementFriction, 0));
