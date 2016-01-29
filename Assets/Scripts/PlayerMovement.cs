@@ -18,6 +18,8 @@ public class PlayerMovement : MonoBehaviour
 	// Upward force from jumping
 	public float m_jumpStrength = 1000;
 
+	public float m_waterRaiseAmount = 1;
+
 	void Start()
 	{
 		// Store a reference to the physics body
@@ -54,9 +56,22 @@ public class PlayerMovement : MonoBehaviour
 		}
 	}
 
+	private bool m_isRaisingWater = false;
+
 	// Update is called once per frame
 	void Update()
 	{
-	
+		if (Input.GetKeyDown (KeyCode.Alpha1) && GameManager.Instance.m_inventory[PickupType.Water] > 0) {
+			GameManager.Instance.m_inventory[PickupType.Water]--;
+			m_isRaisingWater = true;
+		}
+
+		if (m_isRaisingWater) {
+			Water.Instance.WaterLevel += m_waterRaiseAmount * Time.deltaTime;
+
+			if (Input.GetKeyUp(KeyCode.Alpha1)) {
+				m_isRaisingWater = false;
+			}
+		}
 	}
 }

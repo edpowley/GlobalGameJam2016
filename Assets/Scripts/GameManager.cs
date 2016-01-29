@@ -6,6 +6,8 @@ public class GameManager : MonoBehaviour {
 
 	internal static GameManager Instance { get; private set; }
 
+	public UnityEngine.UI.Text m_placeholderHud;
+
 	internal Dictionary<PickupType, int> m_inventory = new Dictionary<PickupType, int>() {
 		{ PickupType.Earth, 0 },
 		{ PickupType.Wind, 0 },
@@ -17,7 +19,11 @@ public class GameManager : MonoBehaviour {
 		Instance = this;
 	}
 
-	void Start() {
+	void Update() {
+		m_placeholderHud.text = "";
 
+		foreach (var kv in m_inventory) {
+			m_placeholderHud.text += string.Format("{0} {1}\n", kv.Value, kv.Key);
+		}
 	}
 }
