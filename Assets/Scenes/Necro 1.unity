@@ -1559,6 +1559,10 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 7
+--- !u!4 &525516960 stripped
+Transform:
+  m_PrefabParentObject: {fileID: 448132, guid: 45c0e30659bc9424481ea318baf065c7, type: 2}
+  m_PrefabInternal: {fileID: 927438719}
 --- !u!1 &544592663
 GameObject:
   m_ObjectHideFlags: 0
@@ -1834,52 +1838,6 @@ SpriteRenderer:
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: 80131bd009c753d45a707333a6020372, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
---- !u!1001 &648092667
-Prefab:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    m_TransformParent: {fileID: 1128045023}
-    m_Modifications:
-    - target: {fileID: 416772, guid: 2100459302ed0a44c9f288031d061cc5, type: 2}
-      propertyPath: m_LocalPosition.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 416772, guid: 2100459302ed0a44c9f288031d061cc5, type: 2}
-      propertyPath: m_LocalPosition.y
-      value: 6
-      objectReference: {fileID: 0}
-    - target: {fileID: 416772, guid: 2100459302ed0a44c9f288031d061cc5, type: 2}
-      propertyPath: m_LocalPosition.z
-      value: 10
-      objectReference: {fileID: 0}
-    - target: {fileID: 416772, guid: 2100459302ed0a44c9f288031d061cc5, type: 2}
-      propertyPath: m_LocalRotation.x
-      value: .707106829
-      objectReference: {fileID: 0}
-    - target: {fileID: 416772, guid: 2100459302ed0a44c9f288031d061cc5, type: 2}
-      propertyPath: m_LocalRotation.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 416772, guid: 2100459302ed0a44c9f288031d061cc5, type: 2}
-      propertyPath: m_LocalRotation.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 416772, guid: 2100459302ed0a44c9f288031d061cc5, type: 2}
-      propertyPath: m_LocalRotation.w
-      value: .707106709
-      objectReference: {fileID: 0}
-    - target: {fileID: 416772, guid: 2100459302ed0a44c9f288031d061cc5, type: 2}
-      propertyPath: m_RootOrder
-      value: 0
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
-  m_ParentPrefab: {fileID: 100100000, guid: 2100459302ed0a44c9f288031d061cc5, type: 2}
-  m_IsPrefabParent: 0
---- !u!4 &648092668 stripped
-Transform:
-  m_PrefabParentObject: {fileID: 416772, guid: 2100459302ed0a44c9f288031d061cc5, type: 2}
-  m_PrefabInternal: {fileID: 648092667}
 --- !u!1 &654650180
 GameObject:
   m_ObjectHideFlags: 0
@@ -2668,6 +2626,48 @@ SpriteRenderer:
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: 308ffc80a7eebc64a991e55aa3128f80, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
+--- !u!1001 &927438719
+Prefab:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 1128045023}
+    m_Modifications:
+    - target: {fileID: 448132, guid: 45c0e30659bc9424481ea318baf065c7, type: 2}
+      propertyPath: m_LocalPosition.x
+      value: -12
+      objectReference: {fileID: 0}
+    - target: {fileID: 448132, guid: 45c0e30659bc9424481ea318baf065c7, type: 2}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 448132, guid: 45c0e30659bc9424481ea318baf065c7, type: 2}
+      propertyPath: m_LocalPosition.z
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 448132, guid: 45c0e30659bc9424481ea318baf065c7, type: 2}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 448132, guid: 45c0e30659bc9424481ea318baf065c7, type: 2}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 448132, guid: 45c0e30659bc9424481ea318baf065c7, type: 2}
+      propertyPath: m_LocalRotation.z
+      value: .70710659
+      objectReference: {fileID: 0}
+    - target: {fileID: 448132, guid: 45c0e30659bc9424481ea318baf065c7, type: 2}
+      propertyPath: m_LocalRotation.w
+      value: -.707106948
+      objectReference: {fileID: 0}
+    - target: {fileID: 448132, guid: 45c0e30659bc9424481ea318baf065c7, type: 2}
+      propertyPath: m_RootOrder
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_ParentPrefab: {fileID: 100100000, guid: 45c0e30659bc9424481ea318baf065c7, type: 2}
+  m_IsPrefabParent: 0
 --- !u!1 &939771324
 GameObject:
   m_ObjectHideFlags: 0
@@ -3164,7 +3164,7 @@ Transform:
   m_LocalPosition: {x: 0, y: 0, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
-  - {fileID: 648092668}
+  - {fileID: 525516960}
   m_Father: {fileID: 0}
   m_RootOrder: 2
 --- !u!114 &1128045024
