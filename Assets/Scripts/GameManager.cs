@@ -8,6 +8,8 @@ public class GameManager : MonoBehaviour {
 
 	public UnityEngine.UI.Text m_placeholderHud;
 
+	public float m_windStrength = 50;
+
 	internal Dictionary<PickupType, int> m_inventory = new Dictionary<PickupType, int>() {
 		{ PickupType.Earth, 0 },
 		{ PickupType.Wind, 0 },
@@ -20,10 +22,17 @@ public class GameManager : MonoBehaviour {
 	}
 
 	void Update() {
+		// Cheat
+		if (Input.GetKeyDown (KeyCode.C)) {
+			foreach(PickupType pickup in System.Enum.GetValues(typeof(PickupType))) {
+				GameManager.Instance.m_inventory[pickup] ++;
+			}
+		}
+
 		m_placeholderHud.text = "";
 
-		foreach (var kv in m_inventory) {
-			m_placeholderHud.text += string.Format("{0} {1}\n", kv.Value, kv.Key);
+		foreach (PickupType pickup in new PickupType[]{PickupType.Water, PickupType.Wind, PickupType.Earth, PickupType.Fire}) {
+			m_placeholderHud.text += string.Format ("{0} {1}\n", m_inventory [pickup], pickup);
 		}
 	}
 }
