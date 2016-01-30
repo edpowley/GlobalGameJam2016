@@ -222,7 +222,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 345318020}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -.5, y: -1.5, z: 0}
+  m_LocalPosition: {x: -.5, y: -1, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 551375048}
@@ -644,7 +644,7 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 551375047}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: 0, y: 0, z: .707106829, w: .707106709}
   m_LocalPosition: {x: 0, y: 1.5, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
@@ -674,7 +674,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 56398b166a21392498d9ef014967850f, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 23385d8343f1c2e43a13152e12fbce6b, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
 --- !u!1001 &629631758
 Prefab:
@@ -731,7 +731,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 416418, guid: 4548096b96dae414bb348fbd198e1499, type: 2}
       propertyPath: m_LocalPosition.y
-      value: -2.43463731
+      value: -.129999995
       objectReference: {fileID: 0}
     - target: {fileID: 416418, guid: 4548096b96dae414bb348fbd198e1499, type: 2}
       propertyPath: m_LocalPosition.z
@@ -1748,6 +1748,7 @@ MonoBehaviour:
   m_thresholdX: 2
   m_thresholdY: 1
   m_lerpFactor: .100000001
+  m_shakeAmount: {x: 0, y: 0, z: 0}
 --- !u!1001 &1171136724
 Prefab:
   m_ObjectHideFlags: 0
@@ -2304,7 +2305,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 23385d8343f1c2e43a13152e12fbce6b, type: 3}
+  m_Sprite: {fileID: 21300000, guid: ca8452ee27e345548b4ba5ffc0761cb0, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
 --- !u!1 &1676583359
 GameObject:
@@ -2358,7 +2359,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 5f7a552eb5ee4294e8f187bef0c3d0ae, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 90369570c05eb6d448290d32ba199b9f, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
 --- !u!4 &1734367577 stripped
 Transform:
