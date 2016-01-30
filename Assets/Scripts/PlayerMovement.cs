@@ -74,7 +74,7 @@ public class PlayerMovement : MonoBehaviour
 	{
 		if (Water.Instance != null && transform.position.y + m_headHeight < Water.Instance.WaterLevel) {
 			// You drowned!
-			Application.LoadLevel(Application.loadedLevel);
+			GameManager.Instance.killPlayer();
 		}
 
 		if (Input.GetKeyDown (KeyCode.Alpha1) && GameManager.Instance.m_inventory[PickupType.Water] > 0) {

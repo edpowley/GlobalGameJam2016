@@ -10,7 +10,7 @@ public class Earthquake : MonoBehaviour {
 	void Awake() {
 		Instance = this;
 	}
-	
+
 	void OnDestroy() {
 		if (Instance == this) {
 			Instance = null;

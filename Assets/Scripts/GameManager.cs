@@ -26,6 +26,11 @@ public class GameManager : MonoBehaviour {
 			Instance = null;
 		}
 	}
+	void Start() {
+		Wind.IsBlowing = false;
+		Earthquake.IsQuaking = false;
+	}
+
 	void Update() {
 		// Cheat
 		if (Input.GetKeyDown (KeyCode.C)) {
@@ -39,5 +44,9 @@ public class GameManager : MonoBehaviour {
 		foreach (PickupType pickup in new PickupType[]{PickupType.Water, PickupType.Wind, PickupType.Earth, PickupType.Fire}) {
 			m_placeholderHud.text += string.Format ("{0} {1}\n", m_inventory [pickup], pickup);
 		}
+	}
+
+	internal void killPlayer() {
+		Application.LoadLevel(Application.loadedLevel);
 	}
 }

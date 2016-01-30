@@ -24,4 +24,17 @@ public class PlayerGroundDetector : MonoBehaviour {
 				Debug.LogWarning("Exited a collider that wasn't entered");
 		}
 	}
+
+	void Update() {
+		for (int i=0; i<m_contactedColliders.Count; i++) {
+			try {
+				var unused = m_contactedColliders[i].attachedRigidbody;
+			}
+			catch (MissingReferenceException) {
+				Debug.LogWarning("Collider is in m_contactedColliders but has been destroyed");
+				m_contactedColliders.RemoveAt(i);
+				i--;
+			}
+		}
+	}
 }
