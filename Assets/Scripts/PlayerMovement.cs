@@ -33,26 +33,25 @@ public class PlayerMovement : MonoBehaviour
 
 	void FixedUpdate()
 	{
+		float horizontalControl = 0;
+
 		if (Input.GetKey (KeyCode.LeftArrow) || Input.GetKey (KeyCode.A)) {
-			// Move left
-			m_body.AddForce (Vector2.left * m_movementSpeed);
-			// If facing right, face left instead
-			if (transform.localScale.x > 0)
-				flipSprite();
+			horizontalControl = -1;
 		} else if (Input.GetKey (KeyCode.RightArrow) || Input.GetKey (KeyCode.D)) {
-			// Move right
-			m_body.AddForce (Vector2.right * m_movementSpeed);
-			// If facing left, face right instead
-			if (transform.localScale.x < 0)
-				flipSprite();
-		} else {
-			// If not pressing a key, add friction force
-			m_body.AddForce(new Vector2(-m_body.velocity.x * m_movementFriction, 0));
+			horizontalControl = +1;
 		}
+
+		//m_body.AddForce (Vector2.right * m_movementSpeed * horizontalControl);
+		m_body.velocity = new Vector2(m_movementSpeed * horizontalControl, m_body.velocity.y);
+
+		// If facing the wrong direction, turn
+		if (transform.localScale.x * horizontalControl < 0)
+			flipSprite();
 
 		if (m_groundDetector.IsOnGround && (Input.GetKey (KeyCode.UpArrow) || Input.GetKey (KeyCode.Space))) {
 			// Jump
-			m_body.AddForce (Vector2.up * m_jumpStrength);
+			//m_body.AddForce (Vector2.up * m_jumpStrength);
+			m_body.velocity = new Vector2(m_body.velocity.x, m_jumpStrength);
 		}
 	}
 
