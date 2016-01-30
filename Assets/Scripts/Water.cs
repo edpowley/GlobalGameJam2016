@@ -11,8 +11,8 @@ public class Water : MonoBehaviour {
 			return transform.position.y + 0.5f * transform.localScale.y; 
 		}
 		set {
-			if (value > 5) 
-				value = 5;
+			//if (value > 5) 
+			//	value = 5;
 
 			transform.position = new Vector3 (transform.position.x, value - 0.5f * transform.localScale.y, transform.position.z);
 		}

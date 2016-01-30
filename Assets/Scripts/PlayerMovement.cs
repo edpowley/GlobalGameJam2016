@@ -35,6 +35,16 @@ public class PlayerMovement : MonoBehaviour
 	{
 		float horizontalControl = 0;
 
+		Vector2 groundVelocity = Vector2.zero;
+
+		foreach (Collider2D coll in m_groundDetector.m_contactedColliders) {
+			if (coll.attachedRigidbody != null)
+				groundVelocity += coll.attachedRigidbody.velocity;
+		}
+
+		if (m_groundDetector.m_contactedColliders.Count > 0)
+			groundVelocity /= m_groundDetector.m_contactedColliders.Count;
+
 		if (Input.GetKey (KeyCode.LeftArrow) || Input.GetKey (KeyCode.A)) {
 			horizontalControl = -1;
 		} else if (Input.GetKey (KeyCode.RightArrow) || Input.GetKey (KeyCode.D)) {
@@ -42,7 +52,7 @@ public class PlayerMovement : MonoBehaviour
 		}
 
 		//m_body.AddForce (Vector2.right * m_movementSpeed * horizontalControl);
-		m_body.velocity = new Vector2(m_movementSpeed * horizontalControl, m_body.velocity.y);
+		m_body.velocity = new Vector2(groundVelocity.x + m_movementSpeed * horizontalControl, m_body.velocity.y);
 
 		// If facing the wrong direction, turn
 		if (transform.localScale.x * horizontalControl < 0)
@@ -71,6 +81,16 @@ public class PlayerMovement : MonoBehaviour
 			if (Input.GetKeyUp(KeyCode.Alpha1)) {
 				m_isRaisingWater = false;
 			}
+		}
+
+		if (Input.GetKeyDown (KeyCode.Alpha2) && GameManager.Instance.m_inventory [PickupType.Wind] > 0) {
+			GameManager.Instance.m_inventory [PickupType.Wind]--;
+			Wind.IsBlowing = true;
+			Wind.BlowDirection = Vector2.right * Mathf.Sign(transform.localScale.x);
+		}
+
+		if (Input.GetKeyUp (KeyCode.Alpha2)) {
+			Wind.IsBlowing = false;
 		}
 	}
 }
