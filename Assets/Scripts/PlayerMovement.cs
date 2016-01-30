@@ -97,6 +97,7 @@ public class PlayerMovement : MonoBehaviour
 		if (Input.GetKeyDown (KeyCode.Alpha1) && GameManager.Instance.m_inventory[PickupType.Water] > 0) {
 			GameManager.Instance.m_inventory[PickupType.Water]--;
 			m_isRaisingWater = true;
+			GameManager.Instance.m_rainParticleSystem.enableEmission = true;
 		}
 
 		if (m_isRaisingWater) {
@@ -104,6 +105,7 @@ public class PlayerMovement : MonoBehaviour
 
 			if (Input.GetKeyUp(KeyCode.Alpha1)) {
 				m_isRaisingWater = false;
+				GameManager.Instance.m_rainParticleSystem.enableEmission = false;
 			}
 		}
 
@@ -111,11 +113,18 @@ public class PlayerMovement : MonoBehaviour
 		if (Input.GetKeyDown (KeyCode.Alpha2) && GameManager.Instance.m_inventory [PickupType.Wind] > 0) {
 			GameManager.Instance.m_inventory [PickupType.Wind]--;
 			Wind.IsBlowing = true;
-			Wind.BlowDirection = Vector2.right * Mathf.Sign(transform.localScale.x);
+			var directionSign = Mathf.Sign(transform.localScale.x);
+			Wind.BlowDirection = Vector2.right * directionSign;
+
+			var ps = GameManager.Instance.m_windParticleSystem;
+			ps.enableEmission = true;
+			ps.transform.localPosition = new Vector3(-Mathf.Abs(ps.transform.localPosition.x) * directionSign, ps.transform.localPosition.y, ps.transform.localPosition.z);
+			ps.transform.localRotation = Quaternion.Euler(0, 0, -90 * directionSign);
 		}
 		
 		if (Input.GetKeyUp (KeyCode.Alpha2)) {
 			Wind.IsBlowing = false;
+			GameManager.Instance.m_windParticleSystem.enableEmission = false;
 		}
 
 		// Earth

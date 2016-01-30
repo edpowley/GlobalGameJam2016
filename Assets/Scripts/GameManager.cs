@@ -10,6 +10,9 @@ public class GameManager : MonoBehaviour {
 
 	public float m_windStrength = 50;
 
+	public ParticleSystem m_rainParticleSystem;
+	public ParticleSystem m_windParticleSystem;
+
 	internal Dictionary<PickupType, int> m_inventory = new Dictionary<PickupType, int>() {
 		{ PickupType.Earth, 0 },
 		{ PickupType.Wind, 0 },
@@ -29,6 +32,9 @@ public class GameManager : MonoBehaviour {
 	void Start() {
 		Wind.IsBlowing = false;
 		Earthquake.IsQuaking = false;
+
+		//m_rainParticleSystem.enableEmission = false;
+		//m_windParticleSystem.enableEmission = false;
 	}
 
 	void Update() {

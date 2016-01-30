@@ -72,7 +72,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_probDissolvePerFrame: .00999999978
-  m_dissolveParticleSystemPrefab: {fileID: 101104, guid: f477876e5dfaf964e901ec2aeffa471e,
+  m_dissolveParticleSystemPrefab: {fileID: 101104, guid: ad7ae8b99b5819e42bef290532421de9,
     type: 2}
 --- !u!212 &21246144
 SpriteRenderer:
@@ -110,7 +110,7 @@ Prefab:
     - target: {fileID: 0}
       propertyPath: m_dissolveParticleSystemPrefab
       value: 
-      objectReference: {fileID: 101104, guid: f477876e5dfaf964e901ec2aeffa471e, type: 2}
+      objectReference: {fileID: 101104, guid: ad7ae8b99b5819e42bef290532421de9, type: 2}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 0}
   m_RootGameObject: {fileID: 108334}
