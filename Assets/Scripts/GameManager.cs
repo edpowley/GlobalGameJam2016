@@ -21,6 +21,11 @@ public class GameManager : MonoBehaviour {
 		Instance = this;
 	}
 
+	void OnDestroy() {
+		if (Instance == this) {
+			Instance = null;
+		}
+	}
 	void Update() {
 		// Cheat
 		if (Input.GetKeyDown (KeyCode.C)) {

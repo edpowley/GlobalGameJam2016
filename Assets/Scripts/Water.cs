@@ -22,5 +22,11 @@ public class Water : MonoBehaviour {
 		Instance = this;
 	}
 
+	void OnDestroy() {
+		if (Instance == this) {
+			Instance = null;
+		}
+	}
+
 
 }
