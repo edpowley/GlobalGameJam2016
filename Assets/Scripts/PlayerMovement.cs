@@ -72,7 +72,8 @@ public class PlayerMovement : MonoBehaviour
 	// Update is called once per frame
 	void Update()
 	{
-		if (transform.position.y + m_headHeight < Water.Instance.WaterLevel) {
+		if (Water.Instance != null && transform.position.y + m_headHeight < Water.Instance.WaterLevel) {
+			// You drowned!
 			Application.LoadLevel(Application.loadedLevel);
 		}
 
@@ -94,9 +95,18 @@ public class PlayerMovement : MonoBehaviour
 			Wind.IsBlowing = true;
 			Wind.BlowDirection = Vector2.right * Mathf.Sign(transform.localScale.x);
 		}
-
+		
 		if (Input.GetKeyUp (KeyCode.Alpha2)) {
 			Wind.IsBlowing = false;
+		}
+
+		if (Input.GetKeyDown (KeyCode.Alpha3) && GameManager.Instance.m_inventory [PickupType.Earth] > 0) {
+			GameManager.Instance.m_inventory [PickupType.Earth]--;
+			Earthquake.IsQuaking = true;
+		}
+		
+		if (Input.GetKeyUp (KeyCode.Alpha3)) {
+			Earthquake.IsQuaking = false;
 		}
 	}
 }

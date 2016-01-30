@@ -5,6 +5,16 @@ public class Water : MonoBehaviour {
 
 	internal static Water Instance { get; private set; }
 
+	void Awake() {
+		Instance = this;
+	}
+	
+	void OnDestroy() {
+		if (Instance == this) {
+			Instance = null;
+		}
+	}
+
 	// Get the surface level of the water
 	internal float WaterLevel { 
 		get {
@@ -17,16 +27,5 @@ public class Water : MonoBehaviour {
 			transform.position = new Vector3 (transform.position.x, value - 0.5f * transform.localScale.y, transform.position.z);
 		}
 	}
-
-	void Awake() {
-		Instance = this;
-	}
-
-	void OnDestroy() {
-		if (Instance == this) {
-			Instance = null;
-		}
-	}
-
 
 }

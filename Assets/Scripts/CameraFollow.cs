@@ -8,6 +8,7 @@ public class CameraFollow : MonoBehaviour {
 	public float m_thresholdX = 2;
 	public float m_thresholdY = 1;
 	public float m_lerpFactor = 0.5f;
+	public Vector3 m_shakeAmount;
 
 	// Use this for initialization
 	void Start ()
@@ -32,5 +33,13 @@ public class CameraFollow : MonoBehaviour {
 		moveToY = Mathf.Clamp (moveToY, m_minY, m_maxY);
 
 		transform.position = Vector3.Lerp(transform.position, new Vector3 (moveToX, moveToY, transform.position.z), m_lerpFactor);
+
+		if (Earthquake.IsQuaking) {
+			Vector3 shake = Random.insideUnitSphere;
+			transform.position += new Vector3 (
+				shake.x * m_shakeAmount.x,
+				shake.y * m_shakeAmount.y,
+				shake.z * m_shakeAmount.z);
+		}
 	}
 }
