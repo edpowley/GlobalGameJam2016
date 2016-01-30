@@ -11,8 +11,9 @@ GameObject:
   - 212: {fileID: 21297910}
   - 61: {fileID: 6129030}
   - 114: {fileID: 11462820}
+  - 114: {fileID: 11487770}
   m_Layer: 0
-  m_Name: Water pickup
+  m_Name: Wind pickup
   m_TagString: Pickup
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -26,7 +27,7 @@ Transform:
   m_GameObject: {fileID: 158416}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -4, y: -2, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 1.5, y: 1.5, z: 1.5}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
@@ -54,7 +55,20 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ef75a15b66099e645a54f6fe692c889a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_pickupType: 3
+  m_pickupType: 1
+--- !u!114 &11487770
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 158416}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a92d77876d1c5e643bdc6815ecae634e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_frequency: .75
+  m_amount: .100000001
 --- !u!212 &21297910
 SpriteRenderer:
   m_ObjectHideFlags: 1
@@ -79,7 +93,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 81ccdd675c43c8647a4a08e476c6745e, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 34dc4410c413eb046995c14078b2e931, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
 --- !u!1001 &100100000
 Prefab:
@@ -91,11 +105,23 @@ Prefab:
     - target: {fileID: 0}
       propertyPath: m_Sprite
       value: 
-      objectReference: {fileID: 21300000, guid: 81ccdd675c43c8647a4a08e476c6745e,
+      objectReference: {fileID: 21300000, guid: 34dc4410c413eb046995c14078b2e931,
         type: 3}
     - target: {fileID: 0}
       propertyPath: m_pickupType
-      value: 3
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: m_LocalScale.x
+      value: 1.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: m_LocalScale.y
+      value: 1.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: m_LocalScale.z
+      value: 1.5
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 0}
