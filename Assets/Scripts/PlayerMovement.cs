@@ -3,6 +3,19 @@ using System.Collections;
 
 public class PlayerMovement : MonoBehaviour
 {
+
+	internal static PlayerMovement Instance { get; private set; }
+	
+	void Awake() {
+		Instance = this;
+	}
+	
+	void OnDestroy() {
+		if (Instance == this) {
+			Instance = null;
+		}
+	}
+
 	// The physics body
 	private Rigidbody2D m_body;
 
@@ -69,6 +82,9 @@ public class PlayerMovement : MonoBehaviour
 
 	private bool m_isRaisingWater = false;
 
+	public GameObject m_fireCirclePrefab;
+	internal FireCircle m_fireCircle { get; private set; }
+
 	// Update is called once per frame
 	void Update()
 	{
@@ -77,6 +93,7 @@ public class PlayerMovement : MonoBehaviour
 			GameManager.Instance.killPlayer();
 		}
 
+		// Water
 		if (Input.GetKeyDown (KeyCode.Alpha1) && GameManager.Instance.m_inventory[PickupType.Water] > 0) {
 			GameManager.Instance.m_inventory[PickupType.Water]--;
 			m_isRaisingWater = true;
@@ -90,6 +107,7 @@ public class PlayerMovement : MonoBehaviour
 			}
 		}
 
+		// Wind
 		if (Input.GetKeyDown (KeyCode.Alpha2) && GameManager.Instance.m_inventory [PickupType.Wind] > 0) {
 			GameManager.Instance.m_inventory [PickupType.Wind]--;
 			Wind.IsBlowing = true;
@@ -100,6 +118,7 @@ public class PlayerMovement : MonoBehaviour
 			Wind.IsBlowing = false;
 		}
 
+		// Earth
 		if (Input.GetKeyDown (KeyCode.Alpha3) && GameManager.Instance.m_inventory [PickupType.Earth] > 0) {
 			GameManager.Instance.m_inventory [PickupType.Earth]--;
 			Earthquake.IsQuaking = true;
@@ -107,6 +126,18 @@ public class PlayerMovement : MonoBehaviour
 		
 		if (Input.GetKeyUp (KeyCode.Alpha3)) {
 			Earthquake.IsQuaking = false;
+		}
+
+		// Fire
+		if (Input.GetKeyDown (KeyCode.Alpha4) && GameManager.Instance.m_inventory [PickupType.Fire] > 0) {
+			GameManager.Instance.m_inventory [PickupType.Fire]--;
+			m_fireCircle = (Instantiate(m_fireCirclePrefab) as GameObject).GetComponent<FireCircle>();
+			m_fireCircle.transform.position = this.transform.position;
+		}
+
+		if (Input.GetKeyUp (KeyCode.Alpha4) && m_fireCircle != null) {
+			m_fireCircle.kill();
+			m_fireCircle = null;
 		}
 	}
 }
