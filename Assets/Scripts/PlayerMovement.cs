@@ -20,6 +20,8 @@ public class PlayerMovement : MonoBehaviour
 
 	public float m_waterRaiseAmount = 1;
 
+	public float m_headHeight = 1;
+
 	void Start()
 	{
 		// Store a reference to the physics body
@@ -70,6 +72,10 @@ public class PlayerMovement : MonoBehaviour
 	// Update is called once per frame
 	void Update()
 	{
+		if (transform.position.y + m_headHeight < Water.Instance.WaterLevel) {
+			Application.LoadLevel(Application.loadedLevel);
+		}
+
 		if (Input.GetKeyDown (KeyCode.Alpha1) && GameManager.Instance.m_inventory[PickupType.Water] > 0) {
 			GameManager.Instance.m_inventory[PickupType.Water]--;
 			m_isRaisingWater = true;
