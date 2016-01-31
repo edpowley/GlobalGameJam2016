@@ -1,1 +1,1 @@
-# GlobalGameJam2016
+http://globalgamejam.org/2016/games/snorri
