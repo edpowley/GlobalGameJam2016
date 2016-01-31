@@ -9,10 +9,10 @@ public class Flammable : MonoBehaviour
     private bool m_isOnFire = false;
 
     public bool m_isDirectlyIgnitable = true;
-    public float m_burnTimeMean = 3;
-    public float m_burnTimeRange = 1;
+    public float m_igniteTime = 3;
+    public float m_burnTime = 3;
 
-    public float m_catchProbabilityPerFrame = 0.01f;
+    private float m_igniteCountDown = float.PositiveInfinity;
 
     private BreakablePart m_breakablePart;
 
@@ -22,15 +22,33 @@ public class Flammable : MonoBehaviour
         {
             m_isOnFire = true;
 
+            if (m_breakablePart != null)
+            {
+                foreach (var neighbour in m_breakablePart.m_neighbours)
+                {
+                    Flammable neighbourFlammable = null;
+                    try
+                    {
+                        neighbourFlammable = neighbour.GetComponent<Flammable>();
+                    }
+                    catch (MissingReferenceException)
+                    {
+                    }
+
+                    if (neighbourFlammable != null && !neighbourFlammable.m_isOnFire && neighbourFlammable.m_igniteCountDown > neighbourFlammable.m_igniteTime)
+                    {
+                        neighbourFlammable.m_igniteCountDown = neighbourFlammable.m_igniteTime;
+                    }
+                }
+            }
+
             ParticleSystem particleSystem = (Instantiate(m_particleSystemPrefab) as GameObject).GetComponent<ParticleSystem>();
             particleSystem.transform.position = transform.position;
 
-            float burnTime = m_burnTimeMean + Random.Range(-1, +1) * m_burnTimeRange;
-
-            while (burnTime > 0)
+            while (m_burnTime > 0)
             {
                 yield return null;
-                burnTime -= Time.deltaTime;
+                m_burnTime -= Time.deltaTime;
                 particleSystem.transform.position = transform.position;
             }
 
@@ -49,7 +67,6 @@ public class Flammable : MonoBehaviour
 
     void Update()
     {
-
         if (!m_isOnFire && m_isDirectlyIgnitable)
         {
             FireCircle fireCircle = PlayerMovement.Instance.m_fireCircle;
@@ -62,30 +79,13 @@ public class Flammable : MonoBehaviour
                 }
             }
         }
-    }
 
-    void FixedUpdate()
-    {
-        if (!m_isOnFire && m_breakablePart != null)
+        if (!m_isOnFire)
         {
-            foreach (var neighbour in m_breakablePart.m_neighbours)
+            m_igniteCountDown -= Time.deltaTime;
+            if (m_igniteCountDown <= 0)
             {
-                Flammable neighbourFlammable = null;
-                try
-                {
-                    neighbourFlammable = neighbour.GetComponent<Flammable>();
-                }
-                catch (MissingReferenceException)
-                {
-                }
-
-                if (neighbourFlammable != null && neighbourFlammable.m_isOnFire)
-                {
-                    if (Random.value < m_catchProbabilityPerFrame)
-                    {
-                        StartCoroutine(burn());
-                    }
-                }
+                StartCoroutine(burn());
             }
         }
     }
