@@ -4421,7 +4421,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 11438110, guid: f3a89578e1a9cfb44bdf9baa8287bb04, type: 2}
       propertyPath: m_maxX
-      value: 4
+      value: 2.4000001
       objectReference: {fileID: 0}
     - target: {fileID: 11477908, guid: f3a89578e1a9cfb44bdf9baa8287bb04, type: 2}
       propertyPath: m_earthquakeHeight
