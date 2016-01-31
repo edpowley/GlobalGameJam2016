@@ -148,5 +148,8 @@ public class PlayerMovement : MonoBehaviour
 			m_fireCircle.kill();
 			m_fireCircle = null;
 		}
+
+		if (Input.GetKeyDown (KeyCode.Period))
+			GameManager.Instance.killPlayer ();
 	}
 }
