@@ -12,7 +12,8 @@ public class PlayerGroundDetector : MonoBehaviour {
 	void OnTriggerEnter2D(Collider2D coll)
 	{
 		if (!coll.isTrigger) { // Don't register contact with triggers
-			m_contactedColliders.Add(coll);
+			if (!m_contactedColliders.Contains(coll))
+				m_contactedColliders.Add(coll);
 		}
 	}
 
@@ -27,14 +28,22 @@ public class PlayerGroundDetector : MonoBehaviour {
 
 	void Update() {
 		for (int i=0; i<m_contactedColliders.Count; i++) {
-			try {
-				var unused = m_contactedColliders[i].attachedRigidbody;
-			}
-			catch (MissingReferenceException) {
-				Debug.LogWarning("Collider is in m_contactedColliders but has been destroyed");
-				m_contactedColliders.RemoveAt(i);
+			if (m_contactedColliders [i] == null) {
+				m_contactedColliders.RemoveAt (i);
 				i--;
+			} else {
+				try {
+					var unused = m_contactedColliders [i].attachedRigidbody;
+				} catch (MissingReferenceException) {
+					Debug.LogWarning ("Collider is in m_contactedColliders but has been destroyed");
+					m_contactedColliders.RemoveAt (i);
+					i--;
+				}
 			}
+		}
+
+		foreach (Collider2D coll in m_contactedColliders) {
+			Debug.DrawLine(transform.position, coll.transform.position, Color.magenta);
 		}
 	}
 }

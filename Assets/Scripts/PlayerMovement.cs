@@ -56,8 +56,11 @@ public class PlayerMovement : MonoBehaviour
 		Vector2 groundVelocity = Vector2.zero;
 
 		foreach (Collider2D coll in m_groundDetector.m_contactedColliders) {
-			if (coll.attachedRigidbody != null)
-				groundVelocity += coll.attachedRigidbody.velocity;
+			try {
+				if (coll != null && coll.attachedRigidbody != null)
+					groundVelocity += coll.attachedRigidbody.velocity;
+			} catch (MissingReferenceException) {
+			}
 		}
 
 		if (m_groundDetector.m_contactedColliders.Count > 0)

@@ -46,6 +46,9 @@ public class GameManager : MonoBehaviour {
 				GameManager.Instance.m_inventory[pickup] ++;
 			}
 		}
+
+		if (Input.GetKeyDown (KeyCode.P))
+			Application.LoadLevel (Application.loadedLevel + 1);
 	}
 
 	internal void killPlayer() {

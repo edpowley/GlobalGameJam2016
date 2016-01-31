@@ -4423,6 +4423,10 @@ Prefab:
       propertyPath: m_maxX
       value: 4
       objectReference: {fileID: 0}
+    - target: {fileID: 11477908, guid: f3a89578e1a9cfb44bdf9baa8287bb04, type: 2}
+      propertyPath: m_earthquakeHeight
+      value: 100
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: f3a89578e1a9cfb44bdf9baa8287bb04, type: 2}
   m_IsPrefabParent: 0

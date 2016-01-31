@@ -25,3 +25,5 @@ EditorBuildSettings:
     path: Assets/Scenes/Mind Your Head.unity
   - enabled: 1
     path: Assets/Scenes/Platform surfing.unity
+  - enabled: 1
+    path: Assets/Scenes/End screen.unity

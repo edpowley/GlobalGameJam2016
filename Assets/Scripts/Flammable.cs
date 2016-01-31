@@ -26,6 +26,9 @@ public class Flammable : MonoBehaviour
             {
                 foreach (var neighbour in m_breakablePart.m_neighbours)
                 {
+					if (neighbour == null)
+						continue;
+
                     Flammable neighbourFlammable = null;
                     try
                     {
