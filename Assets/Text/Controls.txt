@@ -1,4 +1,6 @@
-[Arrow keys] Move
+[Left] / [A] Move left
+[Right] / [D] Move right
+[Up] / [Space] Jump
 
 [1] Water power
 [2] Wind power

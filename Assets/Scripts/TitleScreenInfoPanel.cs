@@ -7,12 +7,6 @@ public class TitleScreenInfoPanel : MonoBehaviour
     public float m_typeDelay = 1.0f / 30.0f;
     public Text m_textBox;
 
-    // Use this for initialization
-    void Start()
-    {
-        gameObject.SetActive(false);
-    }
-
     public void OnOK()
     {
         gameObject.SetActive(false);
