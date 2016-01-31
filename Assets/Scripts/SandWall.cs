@@ -9,6 +9,9 @@ public class SandWall : MonoBehaviour
 
 	public GameObject m_brickPrefab;
 
+    public enum Type { Jointed, Breakable }
+    public Type m_type = Type.Jointed;
+
 	// Use this for initialization
 	void Start ()
 	{
@@ -56,8 +59,20 @@ public class SandWall : MonoBehaviour
 	}
 
 	private void addJoint(GameObject brick1, GameObject brick2) {
-		DistanceJoint2D joint = brick1.AddComponent<DistanceJoint2D> ();
-		joint.connectedBody = brick2.GetComponent<Rigidbody2D> ();
-		joint.enableCollision = true;
+        switch (m_type)
+        {
+            case Type.Jointed:
+                DistanceJoint2D joint = brick1.AddComponent<DistanceJoint2D>();
+                joint.connectedBody = brick2.GetComponent<Rigidbody2D>();
+                joint.enableCollision = true;
+                break;
+
+            case Type.Breakable:
+                BreakablePart part1 = brick1.GetComponent<BreakablePart>();
+                BreakablePart part2 = brick2.GetComponent<BreakablePart>();
+                part1.m_neighbours.Add(part2);
+                part2.m_neighbours.Add(part1);
+                break;
+        }
 	}
 }

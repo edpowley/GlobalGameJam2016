@@ -9,11 +9,11 @@ GameObject:
   m_Component:
   - 4: {fileID: 408866}
   - 212: {fileID: 21246144}
-  - 50: {fileID: 5051558}
   - 61: {fileID: 6183530}
   - 114: {fileID: 11402140}
+  - 114: {fileID: 11454218}
   m_Layer: 0
-  m_Name: Sand block
+  m_Name: Sand block for breakable
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -31,23 +31,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
---- !u!50 &5051558
-Rigidbody2D:
-  serializedVersion: 2
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 108334}
-  m_UseAutoMass: 0
-  m_Mass: 1
-  m_LinearDrag: 0
-  m_AngularDrag: 0.05
-  m_GravityScale: 1
-  m_IsKinematic: 0
-  m_Interpolate: 0
-  m_SleepingMode: 1
-  m_CollisionDetection: 0
-  m_Constraints: 0
 --- !u!61 &6183530
 BoxCollider2D:
   m_ObjectHideFlags: 1
@@ -76,6 +59,18 @@ MonoBehaviour:
   m_probDissolvePerFrame: 0.01
   m_dissolveParticleSystemPrefab: {fileID: 101104, guid: ad7ae8b99b5819e42bef290532421de9,
     type: 2}
+--- !u!114 &11454218
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 108334}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 94c51ef48426e9c4f891bea463cfd6f1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_neighbours: []
 --- !u!212 &21246144
 SpriteRenderer:
   m_ObjectHideFlags: 1
