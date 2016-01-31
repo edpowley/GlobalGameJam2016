@@ -24,4 +24,6 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Mind Your Head.unity
   - enabled: 1
+    path: Assets/Scenes/It's not Blood, I Promise!.unity
+  - enabled: 1
     path: Assets/Scenes/Platform surfing.unity
