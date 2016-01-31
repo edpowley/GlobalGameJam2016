@@ -6,5 +6,6 @@
 [2] Wind power
 [3] Earth power
 [4] Fire power
+Hint: hold the buttons down
 
 [.] Restart level
