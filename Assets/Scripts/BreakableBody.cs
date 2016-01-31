@@ -52,7 +52,7 @@ public class BreakableBody : MonoBehaviour
                 bool result = parts.Remove(part);
                 if (!result)
                 {
-                    Debug.LogWarning("Found a part not in the children of this BreakableBody");
+                    Debug.LogWarningFormat("Found a part not in the children of this BreakableBody (A) : {0}", part);
                 }
             }
 
@@ -75,7 +75,7 @@ public class BreakableBody : MonoBehaviour
                     bool result = parts.Remove(part);
                     if (!result)
                     {
-                        Debug.LogWarning("Found a part not in the children of this BreakableBody");
+                        Debug.LogWarningFormat("Found a part not in the children of this BreakableBody (B) : {0}", part);
                     }
 
                 }

@@ -39,7 +39,7 @@ public class BreakablePart : MonoBehaviour {
 
             foreach(BreakablePart neighbour in part.m_neighbours)
             {
-                if (!seen.Contains(neighbour))
+                if (neighbour != null && !seen.Contains(neighbour))
                 {
                     seen.Add(neighbour);
                     todo.Push(neighbour);
