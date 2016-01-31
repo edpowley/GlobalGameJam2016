@@ -58,7 +58,7 @@ public class BreakableBody : MonoBehaviour
 
             while (parts.Count > 0)
             {
-                GameObject newBody = (GameObject)Instantiate(this.gameObject);
+				GameObject newBody = (GameObject)Instantiate(this.gameObject, this.transform.position, this.transform.rotation);
 
                 // Remove all cloned children from new body
                 List<Transform> children = new List<Transform>();
