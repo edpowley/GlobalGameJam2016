@@ -12,7 +12,9 @@ public class SandBlock : MonoBehaviour {
 	}
 	
 	void FixedUpdate () {
-		if (Earthquake.IsQuaking && Random.value < 0.01f) {
+		if (Earthquake.IsQuaking 
+		    && Mathf.Abs(transform.position.y - PlayerMovement.Instance.transform.position.y) <= GameManager.Instance.m_earthquakeHeight
+		    && Random.value < 0.01f) {
 			StartCoroutine(spawnDissolveParticles());
 			Destroy(this.gameObject);
 		}

@@ -8,6 +8,8 @@ public class GameManager : MonoBehaviour {
 
 	public float m_windStrength = 50;
 
+	public float m_earthquakeHeight = 5;
+
 	public ParticleSystem m_rainParticleSystem;
 	public ParticleSystem m_windParticleSystem;
 
