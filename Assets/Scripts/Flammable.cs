@@ -60,6 +60,16 @@ public class Flammable : MonoBehaviour
         }
     }
 
+	void OnCollisionEnter2D(Collision2D coll)
+	{
+		if (m_isOnFire) {
+			Flammable otherFlammable = coll.collider.GetComponent<Flammable> ();
+			if (otherFlammable != null && !otherFlammable.m_isOnFire && otherFlammable.m_igniteCountDown > otherFlammable.m_igniteTime) {
+				otherFlammable.m_igniteCountDown = otherFlammable.m_igniteTime;
+			}
+		}
+	}
+
     void Start()
     {
         m_breakablePart = GetComponent<BreakablePart>(); // could be null
