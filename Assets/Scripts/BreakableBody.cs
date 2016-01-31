@@ -28,7 +28,17 @@ public class BreakableBody : MonoBehaviour
         {
             BreakablePart part = child.GetComponent<BreakablePart>();
             if (part != null)
-                parts.Add(part);
+            {
+                try
+                {
+                    var unused = part.transform;
+                    parts.Add(part);
+                }
+                catch (MissingReferenceException)
+                {
+                    Debug.Log("hi");
+                }
+            }
         }
 
         if (parts.Count == 0)
@@ -39,7 +49,11 @@ public class BreakableBody : MonoBehaviour
         {
             foreach (BreakablePart part in parts.First().getConnectedParts())
             {
-                parts.Remove(part);
+                bool result = parts.Remove(part);
+                if (!result)
+                {
+                    Debug.LogWarning("Found a part not in the children of this BreakableBody");
+                }
             }
 
             while (parts.Count > 0)
@@ -58,7 +72,12 @@ public class BreakableBody : MonoBehaviour
                 foreach (BreakablePart part in parts.First().getConnectedParts())
                 {
                     part.transform.SetParent(newBody.transform, true);
-                    parts.Remove(part);
+                    bool result = parts.Remove(part);
+                    if (!result)
+                    {
+                        Debug.LogWarning("Found a part not in the children of this BreakableBody");
+                    }
+
                 }
 
                 newBody.GetComponent<BreakableBody>().checkAnchorStatus();

@@ -20,7 +20,7 @@ public class BreakablePart : MonoBehaviour {
 
     void OnDestroy()
     {
-        foreach(BreakablePart neighbour in m_neighbours)
+        foreach (BreakablePart neighbour in m_neighbours)
         {
             neighbour.m_neighbours.Remove(this);
         }
