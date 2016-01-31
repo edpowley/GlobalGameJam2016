@@ -447,7 +447,7 @@ Transform:
   - {fileID: 1521451102}
   - {fileID: 643461156}
   m_Father: {fileID: 0}
-  m_RootOrder: 14
+  m_RootOrder: 12
 --- !u!50 &101797482
 Rigidbody2D:
   serializedVersion: 2
