@@ -6,8 +6,6 @@ public class GameManager : MonoBehaviour {
 
 	internal static GameManager Instance { get; private set; }
 
-	public UnityEngine.UI.Text m_placeholderHud;
-
 	public float m_windStrength = 50;
 
 	public ParticleSystem m_rainParticleSystem;
@@ -43,12 +41,6 @@ public class GameManager : MonoBehaviour {
 			foreach(PickupType pickup in System.Enum.GetValues(typeof(PickupType))) {
 				GameManager.Instance.m_inventory[pickup] ++;
 			}
-		}
-
-		m_placeholderHud.text = "";
-
-		foreach (PickupType pickup in new PickupType[]{PickupType.Water, PickupType.Wind, PickupType.Earth, PickupType.Fire}) {
-			m_placeholderHud.text += string.Format ("{0} {1}\n", m_inventory [pickup], pickup);
 		}
 	}
 
