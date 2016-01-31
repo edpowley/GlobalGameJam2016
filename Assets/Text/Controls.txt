@@ -1,0 +1,8 @@
+[Arrow keys] Move
+
+[1] Water power
+[2] Wind power
+[3] Earth power
+[4] Fire power
+
+[.] Restart level

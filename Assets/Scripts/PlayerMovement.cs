@@ -22,6 +22,9 @@ public class PlayerMovement : MonoBehaviour
 	// Ground detector for jumping
 	public PlayerGroundDetector m_groundDetector;
 
+    // DANCE
+    public PlayerDance m_dance;
+
 	// Character horizontal movement speed
 	public float m_movementSpeed = 10;
 
@@ -149,6 +152,10 @@ public class PlayerMovement : MonoBehaviour
 			m_fireCircle = null;
 		}
 
+        // Dancing
+        m_dance.m_isDancing = m_isRaisingWater || Wind.IsBlowing || Earthquake.IsQuaking || (m_fireCircle != null);
+
+        // Restart
 		if (Input.GetKeyDown (KeyCode.Period))
 			GameManager.Instance.killPlayer ();
 	}

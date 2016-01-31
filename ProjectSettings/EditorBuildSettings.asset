@@ -6,6 +6,8 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
+    path: Assets/Scenes/Title screen.unity
+  - enabled: 1
     path: Assets/Scenes/Making ripples.unity
   - enabled: 1
     path: Assets/Scenes/Fitting in.unity

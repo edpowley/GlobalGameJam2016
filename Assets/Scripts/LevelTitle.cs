@@ -18,7 +18,7 @@ public class LevelTitle : MonoBehaviour
             m_lastLevel = Application.loadedLevel;
 
             Text textBox = GetComponent<Text>();
-            string text = string.Format("Level {0}\n{1}", Application.loadedLevel + 1, Application.loadedLevelName);
+            string text = string.Format("Level {0}\n{1}", Application.loadedLevel, Application.loadedLevelName);
 
             for (int i = 0; i < text.Length; i++)
             {
