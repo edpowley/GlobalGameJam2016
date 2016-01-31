@@ -7,7 +7,7 @@ using System.Collections;
 [ExecuteInEditMode]
 public class Unity531Sucks : MonoBehaviour
 {
-    ParticleSystem.Particle[] unused = new ParticleSystem.Particle[1];
+    /*ParticleSystem.Particle[] unused = new ParticleSystem.Particle[1];
 
     void Awake()
     {
@@ -17,5 +17,5 @@ public class Unity531Sucks : MonoBehaviour
     void LateUpdate()
     {
         GetComponent<ParticleSystemRenderer>().enabled = GetComponent<ParticleSystem>().GetParticles(unused) > 0;
-    }
+    }*/
 }
