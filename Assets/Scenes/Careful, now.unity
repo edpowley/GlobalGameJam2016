@@ -293,6 +293,7 @@ MonoBehaviour:
   m_width: 25
   m_height: 2
   m_brickPrefab: {fileID: 108334, guid: ba417bbbc897ccd4590ce965351a9f93, type: 2}
+  m_type: 0
 --- !u!4 &82899976
 Transform:
   m_ObjectHideFlags: 0
@@ -1747,6 +1748,7 @@ MonoBehaviour:
   m_width: 25
   m_height: 2
   m_brickPrefab: {fileID: 108334, guid: ba417bbbc897ccd4590ce965351a9f93, type: 2}
+  m_type: 0
 --- !u!1 &321832759 stripped
 GameObject:
   m_PrefabParentObject: {fileID: 172650, guid: 06c5e36ec69a0fe4bae251211b1e7f31, type: 2}

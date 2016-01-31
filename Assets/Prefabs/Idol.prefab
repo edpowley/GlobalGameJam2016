@@ -12,6 +12,7 @@ GameObject:
   - 61: {fileID: 6173486}
   - 50: {fileID: 5026194}
   - 114: {fileID: 11458972}
+  - 114: {fileID: 11475328}
   m_Layer: 0
   m_Name: Idol
   m_TagString: Untagged
@@ -72,6 +73,17 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_constraintsWhenBlowing: 4
+--- !u!114 &11475328
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 118146}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 13a2c48fe94039e4db0607cdd5da8255, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!212 &21220622
 SpriteRenderer:
   m_ObjectHideFlags: 1
