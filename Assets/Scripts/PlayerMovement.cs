@@ -69,6 +69,8 @@ public class PlayerMovement : MonoBehaviour
 			horizontalControl = +1;
 		}
 
+		m_dance.m_isWalking = (m_groundDetector.IsOnGround && horizontalControl != 0);
+
 		//m_body.AddForce (Vector2.right * m_movementSpeed * horizontalControl);
 		m_body.velocity = new Vector2(groundVelocity.x + m_movementSpeed * horizontalControl, m_body.velocity.y);
 

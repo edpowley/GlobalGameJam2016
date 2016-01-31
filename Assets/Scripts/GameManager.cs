@@ -6,6 +6,8 @@ public class GameManager : MonoBehaviour {
 
 	internal static GameManager Instance { get; private set; }
 
+	public bool m_cheatMode = false;
+
 	public float m_windStrength = 50;
 
 	public float m_earthquakeHeight = 5;
@@ -39,7 +41,7 @@ public class GameManager : MonoBehaviour {
 
 	void Update() {
 		// Cheat
-		if (Input.GetKeyDown (KeyCode.C)) {
+		if (m_cheatMode && Input.GetKeyDown (KeyCode.C)) {
 			foreach(PickupType pickup in System.Enum.GetValues(typeof(PickupType))) {
 				GameManager.Instance.m_inventory[pickup] ++;
 			}
