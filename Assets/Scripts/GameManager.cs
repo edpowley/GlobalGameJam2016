@@ -47,7 +47,7 @@ public class GameManager : MonoBehaviour {
 			}
 		}
 
-		if (Input.GetKeyDown (KeyCode.P))
+		if (m_cheatMode && Input.GetKeyDown (KeyCode.P))
 			Application.LoadLevel (Application.loadedLevel + 1);
 	}
 
